@@ -242,6 +242,7 @@ class TextInput extends Component {
                 fill={true}
                 hoverIndicator='background'
                 onClick={() => this.onClickSuggestion(suggestion)}
+                plain={true}
               >
                 <Box align='start' pad='small'>
                   {renderLabel(suggestion)}
