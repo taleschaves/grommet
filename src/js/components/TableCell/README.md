@@ -10,6 +10,14 @@ import { TableCell } from 'grommet';
 
 ## Properties
 
+**colSpan**
+
+The colSpan that should be applied to the cell.
+
+```
+string
+```
+
 **plain**
 
 Whether default styling context should be removed.

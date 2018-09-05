@@ -8,13 +8,14 @@ import { TableContext } from '../Table/TableContext';
 import { StyledTableCell } from '../Table/StyledTable';
 
 const TableCell = ({
-  children, plain, scope, size, theme, verticalAlign, ...rest
+  colSpan, children, plain, scope, size, theme, verticalAlign, ...rest
 }) => {
   const Cell = (scope ? StyledTableCell.withComponent('th') : StyledTableCell);
   return (
     <TableContext.Consumer>
       {tableContext => (
         <Cell
+          colSpan={colSpan}
           scope={scope}
           size={size}
           tableContext={tableContext}

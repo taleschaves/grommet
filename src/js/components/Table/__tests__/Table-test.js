@@ -192,3 +192,24 @@ test('TableCell plain renders', () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('TableCell colSpan renders', () => {
+  const component = renderer.create(
+    <Grommet>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableCell colSpan={2} />
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell colSpan={2} />
+          </TableRow>
+        </TableBody>
+      </Table>
+    </Grommet>
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});

@@ -9,13 +9,13 @@ import { grommet } from '../../themes';
 // Always should store amount in cents to avoid precision errors
 const DATA = [
   {
-    id: 1, name: 'Eric', email: 'eric@local', amount: 3775,
+    id: 1, name: 'Eric Lastname', email: 'eric@local', amount: 3775,
   },
   {
-    id: 2, name: 'Chris', email: 'chris@local', amount: 5825,
+    id: 2, name: 'Chris Lastname', email: 'chris@local', amount: 5825,
   },
   {
-    id: 3, name: 'Alan', email: 'alan@local', amount: 4300,
+    id: 3, name: 'Alan Lastname', email: 'alan@local', amount: 4300,
   },
 ];
 
@@ -33,6 +33,7 @@ const COLUMNS = [
     property: 'name',
     label: 'Name',
     dataScope: 'row',
+    colSpan: 2,
     format: datum => <strong>{datum.name}</strong>,
   },
   {
@@ -56,7 +57,13 @@ class SimpleTable extends Component {
           <TableHeader>
             <TableRow>
               {COLUMNS.map(c => (
-                <TableCell key={c.property} scope='col' border='bottom' align={c.align}>
+                <TableCell
+                  colSpan={c.colSpan}
+                  key={c.property}
+                  scope='col'
+                  border='bottom'
+                  align={c.align}
+                >
                   <Text>{c.label}</Text>
                 </TableCell>
               ))}
@@ -66,7 +73,12 @@ class SimpleTable extends Component {
             {DATA.map(datum => (
               <TableRow key={datum.id}>
                 {COLUMNS.map(c => (
-                  <TableCell key={c.property} scope={c.dataScope} align={c.align}>
+                  <TableCell
+                    colSpan={c.colSpan}
+                    key={c.property}
+                    scope={c.dataScope}
+                    align={c.align}
+                  >
                     <Text>
                       {c.format ? c.format(datum) : datum[c.property]}
                     </Text>
@@ -78,7 +90,12 @@ class SimpleTable extends Component {
           <TableFooter>
             <TableRow>
               {COLUMNS.map(c => (
-                <TableCell key={c.property} border='top' align={c.align}>
+                <TableCell
+                  colSpan={c.colSpan}
+                  key={c.property}
+                  border='top'
+                  align={c.align}
+                >
                   <Text>{c.footer}</Text>
                 </TableCell>
               ))}

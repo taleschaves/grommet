@@ -9,6 +9,8 @@ export const doc = (TableCell) => {
     );
 
   DocumentedTableCell.propTypes = {
+    colSpan: PropTypes.string
+      .description('The colSpan that should be applied to the cell.'),
     plain: PropTypes.bool
       .description('Whether default styling context should be removed.'),
     scope: PropTypes.oneOf(['col', 'row'])
